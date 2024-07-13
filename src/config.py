@@ -1,0 +1,1 @@
+SQLITE_URL = "sqlite:///./quiz.db"
