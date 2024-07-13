@@ -6,10 +6,10 @@ from src.auth.models import User
 from src.quizzes.models import Quiz
 from src.questions.models import Question
 from src.answers.models import Answer
-from src.auth.routers import router as auth_router
-from src.quizzes.routers import router as quizzes_router
-from src.questions.routers import router as questions_router
-from src.answers.routers import router as answers_router
+from src.auth.routers import router as user_router
+# from src.quizzes.routers import router as quizzes_router
+# from src.questions.routers import router as questions_router
+# from src.answers.routers import router as answers_router
 
 Base.metadata.create_all(engine)
 
@@ -33,6 +33,8 @@ admin.add_view(UserAdmin)
 admin.add_view(QuizAdmin)
 admin.add_view(QuestionAdmin)
 admin.add_view(AnswerAdmin)
+
+app.include_router(user_router, tags=["User"])
 
 @app.get("/root")
 def root():
